@@ -16,3 +16,11 @@ htmlcov/
 venv/
 .venv/
 env/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
