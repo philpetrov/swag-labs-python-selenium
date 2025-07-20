@@ -8,6 +8,7 @@ This project is a sample framework for web UI test automation of the [Swag Labs]
 - **Pytest**: Used as a framework for writing and running tests.
 - **WebDriver Manager**: Automatically manages the download and versions of browser drivers.
 - **Layered Architecture**: Clear separation into pages (`pages`), steps (`steps`), and tests (`tests`).
+- **Test Case Documentation**: Test cases are documented in `TEST-CASES.md`.
 
 ## Installation
 
@@ -26,4 +27,25 @@ This project is a sample framework for web UI test automation of the [Swag Labs]
 To run all tests, execute the following command in the project's root directory:
 ```bash
 pytest
+```
+
+## Running Tests by Mark
+You can run specific subsets of tests using pytest markers.
+
+For example, to run only tests marked as L1 (level 1 smoke tests):
+
+```bash
+pytest -m L1
+```
+
+To run multiple marks (e.g., L1 or L2):
+
+```bash
+pytest -m "L1 or L2"
+```
+
+To exclude a mark:
+
+```bash
+pytest -m "not slow"
 ```
