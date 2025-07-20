@@ -1,9 +1,10 @@
-import pytest
 import os
+
+import pytest
 from dotenv import load_dotenv
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 # Load environment variables from .env file at the project root
 load_dotenv()
@@ -30,8 +31,13 @@ def standard_user_credentials():
     username = os.getenv("STANDARD_USER_USERNAME")
     password = os.getenv("STANDARD_USER_PASSWORD")
     if not username or not password:
-        pytest.fail("Standard user credentials (STANDARD_USER_USERNAME, STANDARD_USER_PASSWORD) not found in .env file.")
+        pytest.fail(
+            "Standard user credentials "
+            "(STANDARD_USER_USERNAME, STANDARD_USER_PASSWORD) "
+            "not found in .env file."
+        )
     return username, password
+
 
 @pytest.fixture(scope="session")
 def base_url():

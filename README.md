@@ -49,3 +49,30 @@ To exclude a mark:
 ```bash
 pytest -m "not slow"
 ```
+
+## Linting & Code Formatting
+
+This project uses the following tools for code quality:
+
+- [**black**](https://github.com/psf/black) – opinionated code formatter
+- [**flake8**](https://flake8.pycqa.org/) – style and syntax checker
+- [**isort**](https://github.com/PyCQA/isort) – import sorter
+
+### Running Linters
+
+To check your code style:
+
+```bash
+flake8 .
+```
+
+
+To automatically format your code:
+```bash
+black .
+isort .
+```
+
+You can combine them into a pre-commit hook or CI step.
+
+

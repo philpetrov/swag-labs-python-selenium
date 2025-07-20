@@ -1,6 +1,6 @@
-
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 def element_wait_then_click(page, element: tuple, timeout: int = 5):
     """
