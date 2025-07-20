@@ -50,6 +50,54 @@ To exclude a mark:
 pytest -m "not slow"
 ```
 
+## 📄 Test Reports (HTML)
+
+To generate a visual HTML test report using [pytest-html](https://github.com/pytest-dev/pytest-html), run:
+
+```bash
+pytest --html=report.html --self-contained-html
+```
+
+* `--html=report.html` – specifies the output file name for the report.
+* `--self-contained-html` – embeds CSS/JS directly into the file for portability.
+
+### 💡 Open the Report
+
+After test execution, open `report.html` in any browser to view the full report, including:
+
+* Test status (passed/failed/skipped)
+* Error messages
+* Screenshot on failure (if `driver` fixture is used)
+* Final visited URL (automatically included via `pytest_runtest_makereport`)
+
+### 🧪 Example with Verbosity
+
+```bash
+pytest -v --html=report.html --self-contained-html
+```
+
+### 🗂️ Save Report to a Folder
+
+To save to a `reports/` directory:
+
+```bash
+pytest --html=reports/test-report.html --self-contained-html
+```
+
+🔍 Opening the HTML Report
+After the tests finish, you will get a report.html file in the current directory.
+You can open it in your default browser with:
+
+# macOS
+open report.html
+
+# Windows
+start report.html
+
+# Linux
+xdg-open report.html
+Or simply double-click the file in your file manager.
+
 ## Linting & Code Formatting
 
 This project uses the following tools for code quality:

@@ -10,6 +10,28 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 load_dotenv()
 
 
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item):
+    """
+    Extends the pytest-html report with a screenshot and URL on test failure.
+    """
+    pytest_html = item.config.pluginmanager.getplugin("html")
+    outcome = yield
+    report = outcome.get_result()
+    extra = getattr(report, "extra", [])
+    if report.when == "call":
+        # Check if the test has a 'driver' fixture
+        driver = item.funcargs.get("driver")
+        if driver:
+            # Add screenshot on failure
+            if report.failed:
+                screenshot = driver.get_screenshot_as_png()
+                extra.append(pytest_html.extras.png(screenshot, "Screenshot"))
+            # Always add the final URL
+            extra.append(pytest_html.extras.url(driver.current_url, name="Final URL"))
+    report.extra = extra
+
+
 @pytest.fixture
 def driver():
     """
