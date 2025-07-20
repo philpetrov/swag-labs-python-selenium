@@ -32,3 +32,13 @@ def standard_user_credentials():
     if not username or not password:
         pytest.fail("Standard user credentials (STANDARD_USER_USERNAME, STANDARD_USER_PASSWORD) not found in .env file.")
     return username, password
+
+@pytest.fixture(scope="session")
+def base_url():
+    """
+    Fixture to provide the base URL of the application under test.
+    """
+    url = os.getenv("BASE_URL")
+    if not url:
+        pytest.fail("BASE_URL is not defined in the .env file.")
+    return url
