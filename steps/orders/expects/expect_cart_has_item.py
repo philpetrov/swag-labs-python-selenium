@@ -19,14 +19,11 @@ def expect_cart_has_item(driver: WebDriver, product_name: str, expected_price: s
     expect_element_has_text(driver, element=cart_page._PRODUCT_NAME, text=product_name)
 
     product_price_in_cart = cart_page.get_price_by_product_name(product_name)
-    assert (
-        expected_price == product_price_in_cart
-    ), (
+    assert expected_price == product_price_in_cart, (
         f"❌ Price mismatch in cart: expected '{expected_price}', "
         f"got '{product_price_in_cart}'"
     )
 
     logger.info(
-        f"✅ Product '{product_name}' verified in cart with price "
-        f"{expected_price}"
+        f"✅ Product '{product_name}' verified in cart with price " f"{expected_price}"
     )

@@ -10,7 +10,8 @@ def expect_checkout_has_values(
     driver: WebDriver, product_name: str, product_price: str
 ):
     """
-    Verifies that the checkout step two page displays correct item total, tax, and final total.
+    Verifies that the checkout step two page displays
+    correct item total, tax, and final total.
 
     :param driver: WebDriver instance
     :param product_name: Product name (used for logging)

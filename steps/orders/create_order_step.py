@@ -8,7 +8,8 @@ from pages.checkout.checkout_step_one_page import CheckoutStepOnePage
 from pages.checkout.checkout_step_two_page import CheckoutStepTwoPage
 from pages.inventory_page import InventoryPage
 from steps.orders.expects.expect_cart_has_item import expect_cart_has_item
-from steps.orders.expects.expect_checkout_has_values import expect_checkout_has_values
+from steps.orders.expects.expect_checkout_has_values import \
+    expect_checkout_has_values
 
 
 def create_order_step(
@@ -64,7 +65,9 @@ def create_order_step(
         checkout_step_one_page, element=checkout_step_one_page._CONTINUE_BUTTON
     )
     checkout_step_two_page = CheckoutStepTwoPage(driver)
-    expect_checkout_has_values(driver, product_name=product_name, product_price=item_price_at_inventory_page)
+    expect_checkout_has_values(
+        driver, product_name=product_name, product_price=item_price_at_inventory_page
+    )
     element_wait_then_click(
         checkout_step_two_page, element=checkout_step_two_page._FINISH_BUTTON
     )
