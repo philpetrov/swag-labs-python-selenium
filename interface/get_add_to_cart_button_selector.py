@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 def get_add_to_cart_button_selector(product_name: str):
     """
     Returns the locator of the "Add to cart" button by the product name.

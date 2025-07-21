@@ -13,6 +13,7 @@ def expect_element_has_text(driver: WebDriver, element: tuple, text: str):
     """
     element = wait_for_element_visible(driver, element)
     actual_text = element.text
-    assert actual_text == text, \
-        f"Element with locator '{element}' has incorrect text. " \
+    assert actual_text == text, (
+        f"Element with locator '{element}' has incorrect text. "
         f"Expected: '{text}', but got: '{actual_text}'"
+    )

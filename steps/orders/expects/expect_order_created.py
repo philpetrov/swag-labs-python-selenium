@@ -21,14 +21,15 @@ def expect_order_created(driver: WebDriver):
 
     # 2. Verify the header text
     expect_element_has_text(
-        driver,
-        checkout_complete_page._COMPLETE_HEADER,
-        "Thank you for your order!"
+        driver, checkout_complete_page._COMPLETE_HEADER, "Thank you for your order!"
     )
 
     # 3. Verify the completion message text
     expect_element_has_text(
         driver,
         checkout_complete_page._COMPLETE_TEXT,
-        "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+        (
+            "Your order has been dispatched, and will arrive just as fast as the pony "
+            "can get there!"
+        ),
     )

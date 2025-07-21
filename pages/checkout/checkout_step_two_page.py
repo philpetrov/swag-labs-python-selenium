@@ -5,12 +5,9 @@ from pages.base_page import BasePage
 
 class CheckoutStepTwoPage(BasePage):
     """
-    Page Object for the checkout step one page https://www.saucedemo.com/checkout-step-two.html
+    Page Object for the checkout step one page
+    https://www.saucedemo.com/checkout-step-two.html
     """
+
     # Locators
     _FINISH_BUTTON = (By.CSS_SELECTOR, 'button[data-test="finish"]')
-
-
-
-
-

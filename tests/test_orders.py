@@ -1,4 +1,5 @@
-import time
+# import time
+
 import pytest
 
 from interface.go_to_url import go_to_url
@@ -16,9 +17,11 @@ from utils.user_data_generator import generate_user_data
         "Sauce Labs Backpack",
         "Sauce Labs Bike Light",
         "Sauce Labs Bolt T-Shirt",
-    ]
+    ],
 )
-def test_successful_create_order(driver, standard_user_credentials, base_url, product_name):
+def test_successful_create_order(
+    driver, standard_user_credentials, base_url, product_name
+):
     """
     Test case: Successful create order for different products.
     Steps:
