@@ -19,11 +19,9 @@ def test_successful_user_login(driver, standard_user_credentials, base_url):
     """
     username, password = standard_user_credentials
 
-    login_page = LoginPage(driver)
-
     go_to_url(driver, base_url)
 
-    user_login_step(login_page, username, password)
+    user_login_step(driver, username, password)
 
     expect_user_logged_in(driver)
 
@@ -44,9 +42,10 @@ def test_failed_user_login(driver, base_url, username, password):
     - Incorrect password
     - Both fields empty
     """
-    login_page = LoginPage(driver)
     go_to_url(driver, base_url)
 
-    user_login_step(login_page, username, password)
+    user_login_step(driver, username, password)
+
+    login_page = LoginPage(driver)
 
     expect_login_failed(driver, login_page._ERROR_MESSAGE)

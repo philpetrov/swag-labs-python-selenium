@@ -8,11 +8,11 @@ class CheckoutStepOnePage(BasePage):
     Page Object for the checkout step one page https://www.saucedemo.com/checkout-step-one.html
     """
     # Locators
-    FIRST_NAME_INPUT = (By.CSS_SELECTOR, 'input[data-test="firstName"]')
-    LAST_NAME_INPUT = (By.CSS_SELECTOR, 'input[data-test="lastName"]')
-    POSTAL_CODE_INPUT = (By.CSS_SELECTOR, 'input[data-test="postalCode"]')
+    _FIRST_NAME_INPUT = (By.CSS_SELECTOR, 'input[data-test="firstName"]')
+    _LAST_NAME_INPUT = (By.CSS_SELECTOR, 'input[data-test="lastName"]')
+    _POSTAL_CODE_INPUT = (By.CSS_SELECTOR, 'input[data-test="postalCode"]')
 
-    CONTINUE_BUTTON = (By.CSS_SELECTOR, 'input[data-test="continue"]')
+    _CONTINUE_BUTTON = (By.CSS_SELECTOR, 'input[data-test="continue"]')
 
 
 

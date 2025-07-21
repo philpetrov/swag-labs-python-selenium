@@ -8,8 +8,8 @@ class CheckoutCompletePage(BasePage):
     Page Object for the checkout complete page https://www.saucedemo.com/checkout-complete.html
     """
     # Locators
-    CHECKOUT_COMPLETE_MESSAGE = (By.CSS_SELECTOR, 'h2[data-test="checkout_complete_container"]')
-    BACK_HOME_BUTTON = (By.CSS_SELECTOR, 'button[data-test="back-to-products"]')
+    _CHECKOUT_COMPLETE_MESSAGE = (By.CSS_SELECTOR, 'h2[data-test="checkout_complete_container"]')
+    _BACK_HOME_BUTTON = (By.CSS_SELECTOR, 'button[data-test="back-to-products"]')
 
 
 
