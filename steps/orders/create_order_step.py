@@ -1,6 +1,8 @@
 from interface.element_wait_then_click import element_wait_then_click
 from interface.element_wait_then_fill import element_wait_then_fill
 from interface.get_add_to_cart_button_selector import get_add_to_cart_button_selector
+from interface.get_element_value import get_element_value
+from logger import logger
 from pages.cart_page import CartPage
 from pages.checkout.checkout_step_one_page import CheckoutStepOnePage
 from pages.checkout.checkout_step_two_page import CheckoutStepTwoPage
@@ -20,7 +22,9 @@ def create_order_step(driver, product_name: str, first_name: str, last_name: str
     """
 
     inventory_page = InventoryPage(driver)
-    element_wait_then_click(inventory_page, get_add_to_cart_button_selector(product_name))
+    item_price = inventory_page.get_price_by_product_name(product_name)
+    logger.info(f"Price of item at the inventory page '{product_name}': {item_price}")
+    element_wait_then_click(inventory_page, element=get_add_to_cart_button_selector(product_name))
     element_wait_then_click(inventory_page, element=inventory_page._CART_BUTTON)
 
     cart_page = CartPage(driver)

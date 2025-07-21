@@ -32,10 +32,10 @@ pytest
 ## Running Tests by Mark
 You can run specific subsets of tests using pytest markers.
 
-For example, to run only tests marked as L1 (level 1 smoke tests):
+For example, to run only tests marked as L1 (level 1 smoke tests) with logs:
 
 ```bash
-pytest -m L1
+pytest -m L1 -s
 ```
 
 To run multiple marks (e.g., L1 or L2):
