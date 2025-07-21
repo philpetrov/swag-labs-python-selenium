@@ -1,0 +1,35 @@
+import pytest
+
+from interface.go_to_url import go_to_url
+from pages.login_page import LoginPage
+from steps.auth.expects.expect_user_logged_in import expect_user_logged_in
+from steps.auth.expects.expect_user_login_failed import expect_login_failed
+from steps.auth.user_login_step import user_login_step
+
+
+@pytest.mark.SC1
+def test_successful_buy_item(driver, standard_user_credentials, base_url):
+    """
+    Test case: Successful add item to cart.
+    Steps:
+    1. Go to the login page.
+    2. Authorization as user
+    4. Add first item to the cart.
+    5. Verify that the first item is in the cart.
+    6. Go to the cart page.
+    7. Verify that the first item is in the cart.
+    8. Checkout
+    9. Provide personal data and postal code
+    10. Verify that the order is completed successfully.
+    """
+    username, password = standard_user_credentials
+
+    login_page = LoginPage(driver)
+
+    go_to_url(driver, base_url)
+
+    user_login_step(login_page, username, password)
+
+    expect_user_logged_in(driver)
+
+    
